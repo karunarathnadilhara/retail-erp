@@ -8,7 +8,14 @@ db.exec(`
     name TEXT NOT NULL,
     price REAL NOT NULL,
     stock INTEGER NOT NULL DEFAULT 0
-  )
+  );
+
+  CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    role TEXT NOT NULL DEFAULT 'cashier'
+  );
 `);
 
 module.exports = db;
